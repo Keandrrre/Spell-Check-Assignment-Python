@@ -12,10 +12,10 @@ import os
 
 def binarySearch(anArray, item):
     low_i = 0
-    high_i = len(anArray)
+    high_i = len(anArray) - 1
 
     while low_i <= high_i:
-        mid_i = low_i + ((low_i + high_i) // 2)
+        mid_i = (low_i + high_i) // 2
         if anArray[mid_i] == item:
             return mid_i
         elif anArray[mid_i] > item:
@@ -51,6 +51,7 @@ def main():
         selected = int(input("Enter menu selection (1-5): "))
 
         if selected == 1:
+            os.system('cls')
             user_word = input("Please enter a word: ")
             start = time.time()
             result = linearSearch(dictionary, user_word)
@@ -62,6 +63,7 @@ def main():
                 print(str(user_word) + " Was NOT found in the dictionary. " +
                       "(" + str((end-start)) + " s)")
         elif selected == 2:
+            os.system('cls')
             user_word = input("Please enter a word: ")
             start = time.time()
             result = binarySearch(dictionary, user_word)
@@ -73,6 +75,7 @@ def main():
                 print(str(user_word) + " Was NOT found in the dictionary. " +
                       "(" + str((end-start)) + " s)")
         elif selected == 3:
+            os.system('cls')
             start = time.time()
             count = 0
             for i in range(len(aliceWords)):
@@ -80,9 +83,10 @@ def main():
                 if result < 0:
                     count = count + 1
             end = time.time()
-            print("Toatal # of words not found in dictionary:" +
-                  str(count) + ". (" + str((end-start)) + ")")
+            print("Total # of words not found in dictionary: " +
+                  str(count) + ".(" + str((end-start)) + "s)")
         elif selected == 4:
+            os.system('cls')
             start = time.time()
             count = 0
             for i in range(len(aliceWords)):
@@ -90,8 +94,8 @@ def main():
                 if result < 0:
                     count = count + 1
             end = time.time()
-            print("Toatal # of words not found in dictionary:" +
-                  str(count) + ". (" + str((end-start)) + ")")
+            print("Total # of words not found in dictionary: " +
+                  str(count) + ".(" + str((end-start)) + "s)")
         elif selected == 5:
             loop = False
             os.system('cls')
